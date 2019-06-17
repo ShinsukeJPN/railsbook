@@ -1,7 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
   def index
-    # @tasks = Task.where(user_id: current_user.id)
     @tasks = current_user.tasks.recent
   end
 

@@ -10,12 +10,11 @@
         %th= Task.human_attribute_name(:admin)
         %th buttons
       %tbody
-        - @users.each do |user
-        |
+        - @users.each do |user|
           %tr
             %td= user.name
             %td= user.email
             %td= user.admin? ? 'あり' : 'なし'
-            %td
+            %td.buttons
               = link_to '編集', edit_admin_user_path(user), class: 'btn btn-primary mr-3'
               = link_to '削除', [:admin, user], method: :delete, data: { confirm: "ユーザー#{user.name}を削除しますか？"}, class: 'btn btn-danger mr-3'
